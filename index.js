@@ -8,7 +8,8 @@ app.get('/', (req, res) => {
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com' },
   { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
-  { id: 3, name: 'Jim Doe', email: 'jim@example.com' }
+  { id: 3, name: 'Jim Doe', email: 'jim@example.com' },
+  { id: 4, name: 'Jack Doe', email: 'jack@example.com' }
 ];
 app.get('/users', (req, res) => {
   res.send(users);
