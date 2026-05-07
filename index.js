@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 8000;
+app.use(cors());
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -13,7 +16,17 @@ const users = [
 ];
 app.get('/users', (req, res) => {
   res.send(users);
+  
 });
+app.post('/users', (req, res) => {
+
+  const newUser = req.body;
+  newUser.id = users.length + 1;
+  users.push(newUser);
+  res.send({ success: true,data:newUser, message: 'User created successfully' });
+  
+});
+
 app.get('/products', (req, res) => {
   res.send('products are available in our website');
 });
